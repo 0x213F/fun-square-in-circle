@@ -1,8 +1,9 @@
 var canvas = document.getElementById('main'),
     context = canvas.getContext('2d'),
     numberOfDots = 48,
-    numberOfEdges = 3, // TODO why is this N - 1?
-    timeInterval = 1200,
+    numberOfEdges = 4,
+    timeInterval = 1300,
+    radius = 13,
     startTime = Date.now();
 
 window.addEventListener('resize', resizeCanvas, false);
@@ -18,7 +19,6 @@ function draw() {
   context.clearRect(0, 0, canvas.width, canvas.height);
   drawOutterDots(); // TODO do not redraw every frame
   drawInnerDots(t);
-  drawLines(t);
 }
 
 /*

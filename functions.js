@@ -5,12 +5,6 @@
   context          : used to draw on the canvas
 */
 
-var displacement = [];
-var subDots = numberOfDots / numberOfEdges;
-for(var i=0 ; i < numberOfDots ; i++) {
-  displacement[i] = i % subDots / subDots * 2 * Math.PI;
-}
-
 function drawOutterDots() {
   // initialize [x, y] coords and length
   var x = 0,
@@ -41,10 +35,15 @@ function drawOutterDots() {
 
 // t - time in ms since the start of the animation
 function drawInnerDots(t) {
+  var displacement = [];
+  var subDots = numberOfDots / (numberOfEdges - 1);
+  for(var i=0 ; i < numberOfDots ; i++) {
+    displacement[i] = i % subDots / subDots * 2 * Math.PI;
+  }
   // initialize [x, y] coords and length
   var x = 0, xdel = t%timeInterval/timeInterval * Math.PI * 2,
       y = 0, ydel = t%timeInterval/timeInterval * Math.PI * 2,
-      l = 0;
+      l = 0, l2;
   // assign coordinates to center of screen
   if(canvas.width > canvas.height) {
     x = (canvas.width - canvas.height) / 2;
@@ -55,20 +54,25 @@ function drawInnerDots(t) {
   }
   x += l/2;
   y += l/2;
+  l2 = l/2 -l/20; // 5% padding, change it later
   l = l/2 - l/4; // 25% padding relative to canvas
   // draw
   for(var i=0 ; i < numberOfDots ; i++) {
     var xpos = Math.cos(i/numberOfDots * Math.PI * 2) * l,
         ypos = Math.sin(i/numberOfDots * Math.PI * 2) * l,
-        xdis = Math.cos(xdel - displacement[i]) * 12.868,
-        ydis = Math.sin(ydel - displacement[i]) * 12.868;
+
+        xpos2 = Math.cos(i/numberOfDots * Math.PI * 2) * l2,
+        ypos2 = Math.sin(i/numberOfDots * Math.PI * 2) * l2,
+
+        xdis = Math.cos(xdel - displacement[i]) * radius,
+        ydis = Math.sin(ydel - displacement[i]) * radius;
     context.beginPath();
     context.arc(x + xpos + xdis, y + ypos + ydis, 2.5, 0, 2*Math.PI);
     context.fillStyle = "#000";
     context.fill();
     context.stroke();
-    //drawLines([x + xpos, y + ypos], // TODO
-    //          [x + xpos + xdis, y + ypos + ydis]);
+    drawLines([x + xpos2, y + ypos2],
+              [x + xpos + xdis, y + ypos + ydis]);
   }
 }
 
@@ -81,6 +85,3 @@ function drawLines(startPos, endPos) {
   context.lineTo(endPos[0], endPos[1]);
   context.stroke();
 }
-
-resizeCanvas();
-draw();

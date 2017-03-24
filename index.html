@@ -10,9 +10,36 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
   <canvas id="main"></canvas>
+
+  <div id="variables" style="position: fixed; top: 2%; left: 2%">
+    <span>
+      # of dots:
+      <button onclick="updateNumberOfDots(1)">+</button> <button onclick="updateNumberOfDots(-1)">-</button>
+      <span id="numberOfDots">48</span>
+    </span><br>
+    <span>
+      # of edges:
+      <button onclick="updateNumberOfEdges(1)">+</button> <button onclick="updateNumberOfEdges(-1)">-</button>
+      <span id="numberOfEdges">4</span>
+    </span><br>
+    <span>
+      time interval:
+      <input type="range" min="500" max="5000" value="1200" step="50" onchange="updateTimeInterval(this.value)" />
+      <span id="timeInterval">1300</span>
+    </span><br>
+    <span>
+      radius:
+      <input type="range" min="-100" max="100" value="12" step="1" onchange="updateRadius(this.value)" />
+      <span id="radius">13</span>
+    </span><br>
+  </div>
+
+
   <script src="script.js"></script>
   <script src="functions.js"></script>
+  <script src="ui.js"></script>
   <script src="main.js"></script>
 </body>
 </html>
