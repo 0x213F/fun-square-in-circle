@@ -1,7 +1,7 @@
 var canvas = document.getElementById('main'),
     context = canvas.getContext('2d'),
     numberOfDots = 24,
-    numberOfEdges = 4,
+    numberOfEdges = 3, // TODO why is this N - 1?
     timeInterval = 1200,
     startTime = Date.now();
 
@@ -20,9 +20,6 @@ function draw() {
   drawInnerDots(t);
   drawLines(t);
 }
-
-resizeCanvas();
-draw();
 
 /*
     http://stackoverflow.com/questions/4288253/html5-canvas-100-width-height-of-viewport
