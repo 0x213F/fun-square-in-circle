@@ -1,8 +1,8 @@
 /*
   canvas.width     : width of the screen
   canvas.height    : height of the screen
-  canvas                : used to manipulate the canvas
-  context               : used to draw on the canvas
+  canvas           : used to manipulate the canvas
+  context          : used to draw on the canvas
 */
 
 var displacement = [];
@@ -28,11 +28,13 @@ function drawOutterDots() {
   y += l/2;
   l = l/2 - l/20; // 5% padding relative to canvas
   // draw
-  context.beginPath();
   for(var i=0 ; i < numberOfDots ; i++) {
     var xpos = Math.cos(i/numberOfDots * Math.PI * 2) * l,
         ypos = Math.sin(i/numberOfDots * Math.PI * 2) * l;
-    context.rect(x + xpos, y + ypos, 5, 5);
+    context.beginPath();
+    context.arc(x + xpos, y + ypos, 2.5, 0, 2*Math.PI);
+    context.fillStyle = "#000";
+    context.fill();
     context.stroke();
   }
 }
@@ -55,22 +57,29 @@ function drawInnerDots(t) {
   y += l/2;
   l = l/2 - l/4; // 25% padding relative to canvas
   // draw
-  context.beginPath();
   for(var i=0 ; i < numberOfDots ; i++) {
     var xpos = Math.cos(i/numberOfDots * Math.PI * 2) * l,
-        ypos = Math.sin(i/numberOfDots * Math.PI * 2) * l;
-    xpos += Math.cos(xdel - displacement[i]) * 12.868;
-    ypos += Math.sin(ydel - displacement[i]) * 12.868;
-    context.rect(x + xpos, y + ypos, 5, 5);
+        ypos = Math.sin(i/numberOfDots * Math.PI * 2) * l,
+        xdis = Math.cos(xdel - displacement[i]) * 12.868,
+        ydis = Math.sin(ydel - displacement[i]) * 12.868;
+    context.beginPath();
+    context.arc(x + xpos + xdis, y + ypos + ydis, 2.5, 0, 2*Math.PI);
+    context.fillStyle = "#000";
+    context.fill();
     context.stroke();
+    //drawLines([x + xpos, y + ypos], // TODO
+    //          [x + xpos + xdis, y + ypos + ydis]);
   }
 }
 
 // t        - time in ms since the start of the animation
 // startPos - tuple with x and y coords [x, y]
 // endPos   - tuple with x and y coords [x, y]
-function drawLines(t, startPos, endPos) {
-  // TODO
+function drawLines(startPos, endPos) {
+  context.beginPath();
+  context.moveTo(startPos[0], startPos[1]);
+  context.lineTo(endPos[0], endPos[1]);
+  context.stroke();
 }
 
 resizeCanvas();

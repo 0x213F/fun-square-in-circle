@@ -1,6 +1,6 @@
 var canvas = document.getElementById('main'),
     context = canvas.getContext('2d'),
-    numberOfDots = 24,
+    numberOfDots = 48,
     numberOfEdges = 3, // TODO why is this N - 1?
     timeInterval = 1200,
     startTime = Date.now();
