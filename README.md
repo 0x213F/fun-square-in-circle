@@ -10,6 +10,6 @@ I stumbled upon this [post](https://www.reddit.com/r/oddlysatisfying/comments/61
 
 ## Credits
 
-[jaredwilli](http://stackoverflow.com/users/20446/aherrick) for the quick canvas template.
-[Mr-VS](https://github.com/mr-vs) for helping me.
-[/u/XxSuprTuts99xX](https://www.reddit.com/user/XxSuprTuts99xX) for the inspiration.
+* [jaredwilli](http://stackoverflow.com/users/20446/aherrick) for the quick canvas template.
+* [Mr-VS](https://github.com/mr-vs) for helping me.
+* [/u/XxSuprTuts99xX](https://www.reddit.com/user/XxSuprTuts99xX) for the inspiration.
