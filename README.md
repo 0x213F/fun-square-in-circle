@@ -1,6 +1,6 @@
 # Square in Circle
 
-I stumbled upon this [post](https://www.reddit.com/r/oddlysatisfying/comments/612k6m/i_made_a_square_inside_of_a_circle/) on Reddit and recreated it using HTML canvas.
+Recreation of this [post](https://www.reddit.com/r/oddlysatisfying/comments/612k6m/i_made_a_square_inside_of_a_circle/) on Reddit using HTML canvas.
 
 ## Installation
 
@@ -10,6 +10,6 @@ I stumbled upon this [post](https://www.reddit.com/r/oddlysatisfying/comments/61
 
 ## Credits
 
-* [jaredwilli](http://stackoverflow.com/users/20446/aherrick) for the quick canvas template.
-* [Mr-VS](https://github.com/mr-vs) for helping me.
+* [jaredwilli](http://stackoverflow.com/users/20446/aherrick) with the canvas template.
+* [Mr-VS](https://github.com/mr-vs) as a collaborator.
 * [/u/XxSuprTuts99xX](https://www.reddit.com/user/XxSuprTuts99xX) for the inspiration.
