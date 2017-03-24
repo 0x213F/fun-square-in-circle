@@ -8,12 +8,13 @@ window.addEventListener('resize', resizeCanvas, false);
 function resizeCanvas() {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
-        drawOutterDots();
 }
 
 function draw() {
   requestAnimationFrame(draw);
   var t = Date.now() - startTime;
+  context.clearRect(0, 0, canvas.width, canvas.height);
+  drawOutterDots();                     // TODO don't redraw this every frame
   drawInnerDots(t);
   drawLines(t);
 }
