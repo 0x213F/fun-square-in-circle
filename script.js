@@ -1,19 +1,24 @@
 var canvas = document.getElementById('main'),
     context = canvas.getContext('2d'),
-    resizeCanvas, draw;
+    numberOfDots = 50,
+    startTime = Date.now();
 
 window.addEventListener('resize', resizeCanvas, false);
 
-resizeCanvas = function() {
+function resizeCanvas() {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
-        draw();
+        drawOutterDots();
 }
 
-draw = function() {
-  // YOUR CODE HERE
+function draw() {
+  requestAnimationFrame(draw);
+  var t = Date.now() - startTime;
+  drawInnerDots(t);
+  drawLines(t);
 }
 
+draw();
 resizeCanvas();
 
 /*
