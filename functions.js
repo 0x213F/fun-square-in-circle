@@ -18,9 +18,10 @@ function drawOutterDots() {
     y = (canvas.height - canvas.width) / 2;
     l = canvas.width;
   }
-  x += l/2;
-  y += l/2;
-  l = l/2 - l/20; // 5% padding relative to canvas
+
+  x += l/2; // xcoord for origin
+  y += l/2; // ycoord for origin
+  l = l/2 - l/20; // outter loop radius. 5% padding relative to canvas
   // draw
   for(var i=0 ; i < numberOfDots ; i++) {
     var xpos = Math.cos(i/numberOfDots * Math.PI * 2) * l,
@@ -36,6 +37,7 @@ function drawOutterDots() {
 
 // t - time in ms since the start of the animation
 function drawInnerDots(t) {
+  // calculate displacement of all inner points to show shape
   var displacement = [];
   var subDots = numberOfDots / (numberOfEdges - 1);
   for(var i=0 ; i < numberOfDots ; i++) {
@@ -53,15 +55,18 @@ function drawInnerDots(t) {
     y = (canvas.height - canvas.width) / 2;
     l = canvas.width;
   }
-  x += l/2;
-  y += l/2;
-  l2 = l/2 -l/20; // 5% padding, change it later
-  l = l/2 - l/4; // 25% padding relative to canvas
+  x += l/2; // xcoord for origin
+  y += l/2; // ycoord for origin
+  l2 = l/2 -l/20; // outter loop radius. 5% padding
+  l = l/2 - l/4; // inner loop radius. 25% padding relative to canvas
   // draw
   for(var i=0 ; i < numberOfDots ; i++) {
+
+        // inner circle coordinates
     var xpos = Math.cos(i/numberOfDots * Math.PI * 2) * l,
         ypos = Math.sin(i/numberOfDots * Math.PI * 2) * l,
 
+        // outter circle coordinates
         xpos2 = Math.cos(i/numberOfDots * Math.PI * 2) * l2,
         ypos2 = Math.sin(i/numberOfDots * Math.PI * 2) * l2,
 
@@ -92,36 +97,10 @@ function drawLines(startPos, endPos, rad) {
   context.moveTo(startPos[0], startPos[1]);
   context.lineTo(endPos[0], endPos[1]);
   context.lineWidth = 2
-  context.strokeStyle = colors[rad];
-  context.stroke();
-}
-
-function hsv2rgb(hue, saturation, value) {
-  let chroma = value * saturation;
-  let hue1 = hue / 60;
-  let x = chroma * (1- Math.abs((hue1 % 2) - 1));
-  let r1, g1, b1;
-  if (hue1 >= 0 && hue1 <= 1) {
-    ([r1, g1, b1] = [chroma, x, 0]);
-  } else if (hue1 >= 1 && hue1 <= 2) {
-    ([r1, g1, b1] = [x, chroma, 0]);
-  } else if (hue1 >= 2 && hue1 <= 3) {
-    ([r1, g1, b1] = [0, chroma, x]);
-  } else if (hue1 >= 3 && hue1 <= 4) {
-    ([r1, g1, b1] = [0, x, chroma]);
-  } else if (hue1 >= 4 && hue1 <= 5) {
-    ([r1, g1, b1] = [x, 0, chroma]);
-  } else if (hue1 >= 5 && hue1 <= 6) {
-    ([r1, g1, b1] = [chroma, 0, x]);
+  if(color) {
+    context.strokeStyle = colors[rad];
+  } else {
+    context.strokeStyle = "#FFF";
   }
-
-  let m = value - chroma;
-  let [r,g,b] = [r1+m, g1+m, b1+m];
-
-  // Change r,g,b values from [0,1] to [0,255]
-  return "rgb(" + Math.round(255*r).toString() +","+ Math.round(255*g).toString() +","+ Math.round(255*b).toString() +")";
-}
-var fff = []
-for(var i=0;i<360;i++) {
-	fff[i] = hsv2rgb(i,1,1)
+  context.stroke();
 }

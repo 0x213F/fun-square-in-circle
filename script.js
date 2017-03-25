@@ -4,6 +4,7 @@ var canvas = document.getElementById('main'),
     numberOfEdges = 4,
     timeInterval = 1300,
     radius = 13,
+    color = true;
     startTime = Date.now();
 
 window.addEventListener('resize', resizeCanvas, false);

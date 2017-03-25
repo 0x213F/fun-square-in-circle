@@ -35,7 +35,7 @@ Other properties of the animation can be tinkered with by editing the code. Any 
 
 As of now there are three minor inconveniences as listed below. If you have a feature request, please create a `New issue` with an `enhancement` label.
 
-* Line 20 in `script.js` has a TODO. The outter dots only need to be drawn every time the screen is resized. This should significantly increase performance (not that performance is really an issue).
+* Line 21 in `script.js` has a TODO. The outter dots only need to be drawn every time the screen is resized. This should significantly increase performance (not that performance is really an issue).
 
 * Line 12 and 18 in `ui.js` have a TODO. Preferably the animation would not jump when updating the radius and time interval values. This probably relates to `var startTime` in `script.js` on line 7.
 
