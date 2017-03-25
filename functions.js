@@ -32,7 +32,14 @@ function drawOutterDots() {
     context.stroke();
   }
 }
-
+function getRandomColor() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++ ) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
 // t - time in ms since the start of the animation
 function drawInnerDots(t) {
   var displacement = [];
@@ -68,20 +75,28 @@ function drawInnerDots(t) {
         ydis = Math.sin(ydel - displacement[i]) * radius;
     context.beginPath();
     context.arc(x + xpos + xdis, y + ypos + ydis, 2.5, 0, 2*Math.PI);
+    val1=Math.abs(Math.floor((Math.cos((t%(timeInterval*2)/(timeInterval*2)*i/numberOfDots) * Math.PI * 2)*170)))
+    val2=Math.abs(Math.floor((Math.sin((t%(timeInterval*2)/(timeInterval*2)+i/numberOfDots) * Math.PI * 2)*150)))
+    //val2=Math.abs(Math.floor((Math.cos((t%(timeInterval*2)/(timeInterval*2)+i/numberOfDots) * Math.PI * 2)*170)))
+    color="#"+val1.toString(16)+val2.toString(16)+"5F";
+    //console.log(color);
     context.fillStyle = "#000";
     context.fill();
     context.stroke();
     drawLines([x + xpos2, y + ypos2],
-              [x + xpos + xdis, y + ypos + ydis]);
+              [x + xpos + xdis, y + ypos + ydis],color);
+
   }
 }
 
 // t        - time in ms since the start of the animation
 // startPos - tuple with x and y coords [x, y]
 // endPos   - tuple with x and y coords [x, y]
-function drawLines(startPos, endPos) {
+function drawLines(startPos, endPos, color) {
   context.beginPath();
   context.moveTo(startPos[0], startPos[1]);
   context.lineTo(endPos[0], endPos[1]);
+  context.lineWidth = 2
+  context.strokeStyle = color;
   context.stroke();
 }
