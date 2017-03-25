@@ -3,7 +3,6 @@ function loadURLvariables() {
       params, item;
   if(url.length > 1) {
     params = url[1].split('&');
-    console.log(params);
     for(var i in params) {
       item = params[i].split('=');
       window[item[0]] = Number(item[1]);

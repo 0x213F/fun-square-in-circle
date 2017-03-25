@@ -19,10 +19,10 @@ function updateTimeInterval(value) {
   updateURL();
 }
 
-function updateRadius(value) {
+function updatePadding(value) {
   // TODO make it so the animation doesn't jump
-  radius = value;
-  document.getElementById("radius").innerHTML = radius;
+  padding = value;
+  document.getElementById("padding").innerHTML = padding;
   updateURL();
 }
 
@@ -33,10 +33,15 @@ function updateDistance(value) {
   updateURL();
 }
 
-function updatePadding(value) {
+function updateRadius(value) {
   // TODO make it so the animation doesn't jump
-  padding = value;
-  document.getElementById("padding").innerHTML = padding;
+  radius = value;
+  document.getElementById("radius").innerHTML = radius;
+  updateURL();
+}
+
+function updateColor() {
+  color = !color;
   updateURL();
 }
 
@@ -49,7 +54,6 @@ function updateURL() {
                 "&distance=" + distance +
                 "&radius=" +  radius +
                 "&color=" + color;
-  console.log(sharableURL);
 }
 
 function shareURL() {
