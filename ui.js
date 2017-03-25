@@ -57,5 +57,6 @@ function updateURL() {
 }
 
 function shareURL() {
+  if(typeof shareableURL === undefined) updateURL();
   window.location.href = sharableURL;
 }

@@ -13,4 +13,10 @@ function loadURLvariables() {
       }
     }
   }
+  document.getElementById("numberOfDots").innerHTML = numberOfDots;
+  document.getElementById("numberOfEdges").innerHTML = numberOfEdges;
+  document.getElementById("timeInterval").innerHTML = timeInterval;
+  document.getElementById("padding").innerHTML = padding;
+  document.getElementById("distance").innerHTML = distance;
+  document.getElementById("radius").innerHTML = radius;
 }
