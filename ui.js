@@ -19,3 +19,15 @@ function updateRadius(value) {
   radius = value;
   document.getElementById("radius").innerHTML = radius;
 }
+
+function updateDistance(value) {
+  // TODO make it so the animation doesn't jump
+  distance = value;
+  document.getElementById("distance").innerHTML = distance;
+}
+
+function updatePadding(value) {
+  // TODO make it so the animation doesn't jump
+  padding = value;
+  document.getElementById("padding").innerHTML = padding;
+}

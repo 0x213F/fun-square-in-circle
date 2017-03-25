@@ -30,8 +30,18 @@
       <span id="timeInterval">1300</span>
     </span><br>
     <span>
+      padding:
+      <input type="range" min="5" max="50" value="5" step="1" onchange="updatePadding(this.value)" />
+      <span id="padding">5</span>
+    </span><br>
+    <span>
+      distance:
+      <input type="range" min="5" max="95" value="20" step="1" onchange="updateDistance(this.value)" />
+      <span id="distance">20</span>
+    </span><br>
+    <span>
       radius:
-      <input type="range" min="-100" max="100" value="12" step="1" onchange="updateRadius(this.value)" />
+      <input type="range" min="0" max="100" value="12" step="1" onchange="updateRadius(this.value)" />
       <span id="radius">13</span>
     </span><br>
     <span>
@@ -39,6 +49,7 @@
     </span>
   </div>
 
+  <script src="load.js"></script>
   <script src="data.js"></script>
   <script src="script.js"></script>
   <script src="functions.js"></script>

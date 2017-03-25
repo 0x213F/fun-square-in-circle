@@ -21,7 +21,7 @@ function drawOutterDots() {
 
   x += l/2; // xcoord for origin
   y += l/2; // ycoord for origin
-  l = l/2 - l/20; // outter loop radius. 5% padding relative to canvas
+  l = l/2 - l*padding/100; // outter loop radius. 5% padding relative to canvas
   // draw
   for(var i=0 ; i < numberOfDots ; i++) {
     var xpos = Math.cos(i/numberOfDots * Math.PI * 2) * l,
@@ -57,8 +57,8 @@ function drawInnerDots(t) {
   }
   x += l/2; // xcoord for origin
   y += l/2; // ycoord for origin
-  l2 = l/2 -l/20; // outter loop radius. 5% padding
-  l = l/2 - l/4; // inner loop radius. 25% padding relative to canvas
+  l2 = l/2 -l*padding/100; // outter loop radius. 5% padding
+  l = l/2 - l*distance/100; // inner loop radius. 25% padding relative to canvas
   // draw
   for(var i=0 ; i < numberOfDots ; i++) {
 

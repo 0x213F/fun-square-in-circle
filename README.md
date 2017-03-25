@@ -30,7 +30,6 @@ Other properties of the animation can be tinkered with by editing the code. Any 
 
 * Description of how this applet was built.
 * Support for exporting the current animation as a gif.
-* Add distance parameter as a variable.
 * Sharable URLs.
 
 ## Contributing
