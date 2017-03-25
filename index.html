@@ -4,6 +4,7 @@
   <meta charset="utf-8">
 
   <title>square_in_circle</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta name="description" content="square_in_circle">
   <meta name="author" content="0x213F">
 
@@ -26,7 +27,7 @@
     </span><br>
     <span>
       time interval:
-      <input type="range" min="500" max="5000" value="1200" step="50" onchange="updateTimeInterval(this.value)" />
+      <input type="range" min="500" max="10000" value="1200" step="50" onchange="updateTimeInterval(this.value)" />
       <span id="timeInterval">1300</span>
     </span><br>
     <span>
@@ -46,6 +47,15 @@
     </span><br>
     <span>
       <button onclick="color = !color">toggle color</button>
+    </span>
+  </div>
+
+  <div id="share">
+    <span>
+      <button onclick="shareURL()">share link</button>
+    </span><br>
+    <span>
+      <button onclick="shareURL()">download gif</button>
     </span>
   </div>
 

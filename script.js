@@ -9,6 +9,8 @@ var canvas = document.getElementById('main'),
     color = true;
     startTime = Date.now();
 
+loadURLvariables();
+
 window.addEventListener('resize', resizeCanvas, false);
 
 function resizeCanvas() {

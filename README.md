@@ -20,9 +20,8 @@ _To run this applet on your machine, follow one of the two steps listed below._
 
 Other properties of the animation can be tinkered with by editing the code. Any values in the code are in terms of percent where 100% is the length of the shortest side of the screen. A full list of values are as follows.
 
-* The diameter of the outter dots.
+* The diameter of the outer dots.
 * The diameter of the inner dots.
-* The position of the centroid of the inner dots.
 * The thickness of the lines.
 * The color function of the lines.
 
