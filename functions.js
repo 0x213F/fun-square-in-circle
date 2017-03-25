@@ -27,19 +27,13 @@ function drawOutterDots() {
         ypos = Math.sin(i/numberOfDots * Math.PI * 2) * l;
     context.beginPath();
     context.arc(x + xpos, y + ypos, 2.5, 0, 2*Math.PI);
-    context.fillStyle = "#000";
+    context.strokeStyle = "#FFF";
+    context.fillStyle = "#FFF";
     context.fill();
     context.stroke();
   }
 }
-function getRandomColor() {
-    var letters = '0123456789ABCDEF';
-    var color = '#';
-    for (var i = 0; i < 6; i++ ) {
-        color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
-}
+
 // t - time in ms since the start of the animation
 function drawInnerDots(t) {
   var displacement = [];
@@ -73,30 +67,61 @@ function drawInnerDots(t) {
 
         xdis = Math.cos(xdel - displacement[i]) * radius,
         ydis = Math.sin(ydel - displacement[i]) * radius;
+    drawLines([x + xpos2, y + ypos2],
+              [x + xpos + xdis, y + ypos + ydis],
+              Math.atan( (ydis)/(xdis) ));
     context.beginPath();
     context.arc(x + xpos + xdis, y + ypos + ydis, 2.5, 0, 2*Math.PI);
-    val1=Math.abs(Math.floor((Math.cos((t%(timeInterval*2)/(timeInterval*2)*i/numberOfDots) * Math.PI * 2)*170)))
-    val2=Math.abs(Math.floor((Math.sin((t%(timeInterval*2)/(timeInterval*2)+i/numberOfDots) * Math.PI * 2)*150)))
-    //val2=Math.abs(Math.floor((Math.cos((t%(timeInterval*2)/(timeInterval*2)+i/numberOfDots) * Math.PI * 2)*170)))
-    color="#"+val1.toString(16)+val2.toString(16)+"5F";
-    //console.log(color);
-    context.fillStyle = "#000";
+    context.strokeStyle = "#FFF";
+    context.fillStyle = "#FFF";
     context.fill();
     context.stroke();
-    drawLines([x + xpos2, y + ypos2],
-              [x + xpos + xdis, y + ypos + ydis],color);
-
   }
 }
 
 // t        - time in ms since the start of the animation
 // startPos - tuple with x and y coords [x, y]
 // endPos   - tuple with x and y coords [x, y]
-function drawLines(startPos, endPos, color) {
+function drawLines(startPos, endPos, rad) {
+  rad = rad / Math.PI * 180;
+  if(rad < 0) {
+    rad = 360 + rad;
+  }
+  rad = Math.round(rad);
   context.beginPath();
   context.moveTo(startPos[0], startPos[1]);
   context.lineTo(endPos[0], endPos[1]);
   context.lineWidth = 2
-  context.strokeStyle = color;
+  context.strokeStyle = colors[rad];
   context.stroke();
+}
+
+function hsv2rgb(hue, saturation, value) {
+  let chroma = value * saturation;
+  let hue1 = hue / 60;
+  let x = chroma * (1- Math.abs((hue1 % 2) - 1));
+  let r1, g1, b1;
+  if (hue1 >= 0 && hue1 <= 1) {
+    ([r1, g1, b1] = [chroma, x, 0]);
+  } else if (hue1 >= 1 && hue1 <= 2) {
+    ([r1, g1, b1] = [x, chroma, 0]);
+  } else if (hue1 >= 2 && hue1 <= 3) {
+    ([r1, g1, b1] = [0, chroma, x]);
+  } else if (hue1 >= 3 && hue1 <= 4) {
+    ([r1, g1, b1] = [0, x, chroma]);
+  } else if (hue1 >= 4 && hue1 <= 5) {
+    ([r1, g1, b1] = [x, 0, chroma]);
+  } else if (hue1 >= 5 && hue1 <= 6) {
+    ([r1, g1, b1] = [chroma, 0, x]);
+  }
+
+  let m = value - chroma;
+  let [r,g,b] = [r1+m, g1+m, b1+m];
+
+  // Change r,g,b values from [0,1] to [0,255]
+  return "rgb(" + Math.round(255*r).toString() +","+ Math.round(255*g).toString() +","+ Math.round(255*b).toString() +")";
+}
+var fff = []
+for(var i=0;i<360;i++) {
+	fff[i] = hsv2rgb(i,1,1)
 }

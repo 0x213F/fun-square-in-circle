@@ -5,6 +5,7 @@
   border  : 0px;
   font-family: monospace;
   line-height: 2em;
+  color: white;
 }
 
 /* just to be sure these are full screen */
@@ -17,6 +18,7 @@ html, body {
 canvas {
   display : block;
   top: 0px;
+  background-color: #444;
 }
 
 button {

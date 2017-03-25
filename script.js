@@ -17,8 +17,8 @@ function draw() {
   requestAnimationFrame(draw);
   var t = Date.now() - startTime;
   context.clearRect(0, 0, canvas.width, canvas.height);
-  drawOutterDots(); // TODO do not redraw every frame
   drawInnerDots(t);
+  drawOutterDots(); // TODO do not redraw every frame
 }
 
 /*
