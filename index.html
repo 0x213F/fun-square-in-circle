@@ -1,66 +1,65 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="description" content="square_in_circle">
+    <meta name="author" content="0x213F">
 
-  <title>square_in_circle</title>
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-  <meta name="description" content="square_in_circle">
-  <meta name="author" content="0x213F">
+    <title>square_in_circle</title>
 
-  <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <canvas id="main"></canvas>
+    <!-- the main stage i.e. the animation :D -->
+    <canvas id="main"></canvas>
 
-  <div id="variables">
-    <span>
-      # of dots:
-      <button onclick="updateNumberOfDots(1)">+</button> <button onclick="updateNumberOfDots(-1)">-</button>
-      <span id="numberOfDots">48</span>
-    </span><br>
-    <span>
-      # of edges:
-      <button onclick="updateNumberOfEdges(1)">+</button> <button onclick="updateNumberOfEdges(-1)">-</button>
-      <span id="numberOfEdges">4</span>
-    </span><br>
-    <span>
-      time interval:
-      <input type="range" min="500" max="10000" value="1200" step="50" onchange="updateTimeInterval(this.value)" />
-      <span id="timeInterval">1300</span>
-    </span><br>
-    <span>
-      padding:
-      <input type="range" min="5" max="50" value="5" step="1" onchange="updatePadding(this.value)" />
-      <span id="padding">5</span>
-    </span><br>
-    <span>
-      distance:
-      <input type="range" min="5" max="95" value="20" step="1" onchange="updateDistance(this.value)" />
-      <span id="distance">20</span>
-    </span><br>
-    <span>
-      radius:
-      <input type="range" min="0" max="100" value="12" step="1" onchange="updateRadius(this.value)" />
-      <span id="radius">13</span>
-    </span><br>
-    <span>
-      <button onclick="updateColor()">toggle color</button>
-    </span>
-  </div>
+    <!-- a bunch of variables the user can control -->
+    <div id="variables">
+        <span>
+            # of dots:
+            <button onclick="updateNumberOfDots(1)">+</button> <button onclick="updateNumberOfDots(-1)">-</button>
+            <span id="numberOfDots">48</span>
+        </span><br>
+        <span>
+            # of edges:
+            <button onclick="updateNumberOfEdges(1)">+</button> <button onclick="updateNumberOfEdges(-1)">-</button>
+            <span id="numberOfEdges">4</span>
+        </span><br>
+        <span>
+            time interval:
+            <input type="range" min="500" max="10000" value="1200" step="50" onchange="updateTimeInterval(this.value)" />
+            <span id="timeInterval">1300</span>
+        </span><br>
+        <span>
+            padding:
+            <input type="range" min="5" max="50" value="5" step="1" onchange="updatePadding(this.value)" />
+            <span id="padding">5</span>
+        </span><br>
+        <span>
+            distance:
+            <input type="range" min="5" max="95" value="20" step="1" onchange="updateDistance(this.value)" />
+            <span id="distance">20</span>
+            </span><br>
+        <span>
+            radius:
+            <input type="range" min="0" max="100" value="12" step="1" onchange="updateRadius(this.value)" />
+            <span id="radius">13</span>
+        </span><br>
+        <span>
+            <button onclick="updateColor()">toggle color</button>
+        </span>
+    </div>
 
-  <div id="share">
-    <span>
-      <button onclick="shareURL()">share link</button>
-    </span><br>
-  </div>
+    <!-- sharing is caring, please share this with your friends -->
+    <div id="share">
+        <span>
+            <button onclick="shareURL()">share link</button>
+        </span><br>
+    </div>
 
-  <script src="load.js"></script>
-  <script src="data.js"></script>
-  <script src="script.js"></script>
-  <script src="functions.js"></script>
-  <script src="ui.js"></script>
-  <script src="main.js"></script>
+    <script src="js/compressed.js"></script>
+
 </body>
 </html>

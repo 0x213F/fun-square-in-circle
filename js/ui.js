@@ -13,6 +13,7 @@ function updateNumberOfEdges(value) {
 }
 
 function updateTimeInterval(value) {
+
   // TODO make it so the animation doesn't jump
   timeInterval = value;
   document.getElementById("timeInterval").innerHTML = timeInterval;
@@ -20,6 +21,7 @@ function updateTimeInterval(value) {
 }
 
 function updatePadding(value) {
+
   // TODO make it so the animation doesn't jump
   padding = value;
   document.getElementById("padding").innerHTML = padding;
@@ -27,6 +29,7 @@ function updatePadding(value) {
 }
 
 function updateDistance(value) {
+
   // TODO make it so the animation doesn't jump
   distance = value;
   document.getElementById("distance").innerHTML = distance;
@@ -34,6 +37,7 @@ function updateDistance(value) {
 }
 
 function updateRadius(value) {
+
   // TODO make it so the animation doesn't jump
   radius = value;
   document.getElementById("radius").innerHTML = radius;
@@ -46,17 +50,17 @@ function updateColor() {
 }
 
 function updateURL() {
-  sharableURL = location.protocol + '//' + location.host + location.pathname +
-                "?numberOfDots=" + numberOfDots +
-                "&numberOfEdges=" + numberOfEdges +
-                "&timeInterval=" + timeInterval +
-                "&padding=" + padding +
-                "&distance=" + distance +
-                "&radius=" +  radius +
-                "&color=" + color;
+    sharableURL = location.protocol + '//' + location.host + location.pathname +
+                  "?numberOfDots=" + numberOfDots +
+                  "&numberOfEdges=" + numberOfEdges +
+                  "&timeInterval=" + timeInterval +
+                  "&padding=" + padding +
+                  "&distance=" + distance +
+                  "&radius=" +  radius +
+                  "&color=" + color;
 }
 
 function shareURL() {
-  updateURL();
-  window.location.href = sharableURL;
+    updateURL();
+    window.location.href = sharableURL;
 }

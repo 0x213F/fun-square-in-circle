@@ -1,0 +1,27 @@
+/* to remove the top and left whitespace */
+* {
+  margin  : 0px;
+  padding : 0px;
+  border  : 0px;
+  font-family: monospace;
+  line-height: 1.8em;
+  color: white;
+  background-color: #FFF;
+}
+
+/* just to be sure these are full screen */
+html, body {
+  width   : 100%;
+  height  : 100%;
+}
+
+/* to remove the scrollbars */
+canvas {
+  display : block;
+  top: 0px;
+  background-color: #FFF;
+}
+
+/*
+    http://stackoverflow.com/questions/4288253/html5-canvas-100-width-height-of-viewport
+*/
